@@ -1,0 +1,29 @@
+add_newline = false
+right_format = """
+$time"""
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 80
+style = "bold green"
+
+[[battery.display]]
+threshold = 100
+style = "bold cyan"
+
+# RPROMPT
+
+[time]
+disabled = false
+time_format = "%F %T"
