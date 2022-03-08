@@ -44,7 +44,7 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
 
     ### winehq
     wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    sudoa apt-key add winehq.key
+    sudo apt-key add winehq.key
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 fi
 
