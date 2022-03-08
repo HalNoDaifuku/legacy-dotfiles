@@ -31,7 +31,7 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
     ### apt-fast
-    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
     echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
     echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
@@ -41,9 +41,11 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo apt install -y software-properties-common lsb-release wget
 
     ### apt-fast
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
     sudo add-apt-repository ppa:apt-fast/stable
 
     ### winehq
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
     wget -nc https://dl.winehq.org/wine-builds/winehq.key
     sudo apt-key add winehq.key
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
@@ -51,16 +53,22 @@ fi
 
 # apt install
 ## gh
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting gh..."
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 sudo apt update
 ## apt-fast
-DEBIAN_FRONTEND=noninteractive sudo apt install -y -o --force-yes apt-fast
+_APTMGR = apt
+DOWNLOADBEFORE = true
+sudo apt install -y -o --force-yes -qq apt-fast
+# DEBIAN_FRONTEND=noninteractive sudo apt install -y -o --force-yes apt-fast
 echo "
 _APTMGR = apt
 DOWNLOADBEFORE = true
 " | sudo tee /etc/apt-fast.conf > /dev/null
 ## winehq
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 sudo apt-fast install -y --install-recommends winehq-staging
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
 sudo apt-fast install -y $PACKAGE_LIST
