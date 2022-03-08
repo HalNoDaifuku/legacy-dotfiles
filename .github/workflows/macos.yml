@@ -1,0 +1,17 @@
+name: MacOS-Test
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  MacOS:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test
+        run: |
+          ./install.sh
