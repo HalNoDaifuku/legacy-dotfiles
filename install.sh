@@ -46,7 +46,7 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 /bin/sh -c '
 for folders in $LINK_FOLDERS
 do
-    echo $folders
+    echo $folders/
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
