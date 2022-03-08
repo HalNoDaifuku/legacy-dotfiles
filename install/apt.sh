@@ -25,18 +25,18 @@ vim
 wget
 winetricks
 "
-export PACKAGE_LIST=$(echo $PACKAGE_LIST | tr "\n" " ")
+export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
 # platform
 ## Debian
-if [ $PLATFORM = "Debian" ]; then
+if [ "$PLATFORM" = "Debian" ]; then
     ### apt-fast
     echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
     echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
 
 ## Ubuntu
-if [ $PLATFORM = "Ubuntu" ]; then
+elif [ "$PLATFORM" = "Ubuntu" ]; then
     echo test
     sudo apt install -y software-properties-common lsb-release
 
@@ -45,7 +45,7 @@ if [ $PLATFORM = "Ubuntu" ]; then
 
     ### winehq
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb-release -c -s) main"
-
+fi
 
 # apt install
 ## gh
