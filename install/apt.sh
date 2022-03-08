@@ -46,8 +46,8 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
 
     ### winehq
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    sudo apt-key add winehq.key
+    curl -fsSL https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add
+    # sudo apt-key add winehq.key
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 fi
 
