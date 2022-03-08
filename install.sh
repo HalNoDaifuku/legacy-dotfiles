@@ -32,7 +32,7 @@ pushd "$SCRIPT_DIR"
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
 
 /bin/sh -c '
-for files in "$LINK_FILES"
+for files in $LINK_FILES
 do
     echo $files
     mkdir -p $INSTALL_DIR/"$(dirname $files)"
@@ -44,7 +44,7 @@ done
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
 /bin/sh -c '
-for folders in "$LINK_FOLDERS"
+for folders in $LINK_FOLDERS
 do
     echo $folders
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
