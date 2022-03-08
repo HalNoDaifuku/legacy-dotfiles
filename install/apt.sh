@@ -37,13 +37,14 @@ if [ "$PLATFORM" = "Debian" ]; then
 
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
-    echo test
-    sudo apt install -y software-properties-common lsb-release
+    sudo apt install -y software-properties-common lsb-release wget
 
     ### apt-fast
     sudo add-apt-repository ppa:apt-fast/stable
 
     ### winehq
+    wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    sudoa apt-key add winehq.key
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 fi
 
