@@ -55,10 +55,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 
 sudo apt update
 ## apt-fast
+DEBIAN_FRONTEND=noninteractive sudo apt install -y --force-yes apt-fast
 echo "
 _APTMGR = apt
 DOWNLOADBEFORE = true
 " | sudo tee /etc/apt-fast.conf > /dev/null
-DEBIAN_FRONTEND=noninteractive sudo apt install -y -o apt-fast
+## winehq
 sudo apt-fast install -y --install-recommends winehq-staging
 sudo apt-fast install -y $PACKAGE_LIST
