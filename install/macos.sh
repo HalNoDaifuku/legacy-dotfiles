@@ -11,7 +11,7 @@ fi
 
 
 # Homebrew
-if !(type brew > /dev/null 2>&1); then
+if ! type brew > /dev/null 2>&1; then
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
