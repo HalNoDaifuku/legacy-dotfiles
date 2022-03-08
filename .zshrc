@@ -35,7 +35,7 @@ eval "$(anyenv init -)"
 eval "$(sheldon source)"
 
 # PATH
-export FPATH=$HOME/.zfunc:$FPATH
+export FPATH="$HOME/.zfunc:$FPATH"
 export EDITOR='vim'
 
 ## Delete the same PATH
