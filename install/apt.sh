@@ -85,3 +85,6 @@ APTCACHE='/var/cache/apt/archives'
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
 sudo apt-fast install -y $PACKAGE_LIST
+
+# end
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "End $PLATFORM script"
