@@ -6,13 +6,17 @@ set -eu
 # export
 export SCRIPT_DIR=$(cd $(dirname $0); pwd)
 export INSTALL_DIR="$HOME"
-export LINK_FILES=".config/starship.toml
+export LINK_FILES="
+.config/starship.toml
 .sheldon/plugins.toml
 .gitconfig
 .tmux.conf
 .vimrc
-.zshrc"
-export LINK_FOLDERS=".settings"
+.zshrc
+"
+export LINK_FOLDERS="
+.settings
+"
 ## color
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
@@ -24,22 +28,26 @@ pushd "$SCRIPT_DIR"
 ## files
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
 
+/bin/sh -c '
 for files in "$LINK_FILES"
 do
     echo "$files"
     mkdir -p $INSTALL_DIR/"$(dirname $files)"
     ln -nfs "$SCRIPT_DIR/$files" "$INSTALL_DIR/$files"
 done
+'
 
 ## folders
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
+/bin/sh -c '
 for folders in "$LINK_FOLDERS"
 do
     echo "$folders"
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
+'
 
 ls -a --color=auto $HOME
 
