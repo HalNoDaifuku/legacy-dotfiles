@@ -1,4 +1,4 @@
-name: test
+name: Ubuntu-Test
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Ubuntu
   Ubuntu:
     runs-on: ubuntu-latest
     steps:
