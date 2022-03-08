@@ -60,8 +60,6 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 sudo apt update
-sudo apt dist-upgrade -y
-sudo apt autoremove -y
 
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
@@ -80,6 +78,9 @@ _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCO
 DLDIR='/var/cache/apt/apt-fast'
 APTCACHE='/var/cache/apt/archives'
 " | sudo tee /etc/apt-fast.conf > /dev/null
+
+sudo apt-fast dist-upgrade -y
+sudo apt-fast autoremove -y
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
