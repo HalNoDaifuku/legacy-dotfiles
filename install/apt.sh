@@ -61,12 +61,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 
 sudo apt update
 
-## winehq
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
-sudo apt autoclean
-sudo apt clean all
-sudo apt install -y --install-recommends winehq-staging
-
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo touch /etc/apt-fast.conf
@@ -84,6 +78,13 @@ _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCO
 DLDIR='/var/cache/apt/apt-fast'
 APTCACHE='/var/cache/apt/archives'
 " | sudo tee /etc/apt-fast.conf > /dev/null
+
+## winehq
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
+sudo apt autoclean
+sudo apt clean all
+sudo apt update
+sudo apt-fast install -y --install-recommends winehq-staging
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
 sudo apt-fast install -y $PACKAGE_LIST
