@@ -6,17 +6,13 @@ set -eu
 # export
 export SCRIPT_DIR=$(cd $(dirname $0); pwd)
 export INSTALL_DIR="$HOME"
-export LINK_FILES="
-.config/starship.toml
+export LINK_FILES=".config/starship.toml
 .sheldon/plugins.toml
 .gitconfig
 .tmux.conf
 .vimrc
-.zshrc
-"
-export LINK_FOLDERS="
-.settings
-"
+.zshrc"
+export LINK_FOLDERS=".settings"
 ## color
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
