@@ -18,7 +18,7 @@ fi
 
 ## Brewfile
 pushd .settings/homebrew
-
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing Homebrew packages..."
 brew bundle -v
 
 popd
