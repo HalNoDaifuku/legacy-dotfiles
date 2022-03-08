@@ -20,7 +20,7 @@ jobs:
           echo "
           _APTMGR = apt
           DOWNLOADBEFORE = true
-          " > /etc/apt-fast.conf
+          " | sudo tee /etc/apt-fast.conf > /dev/null
           ./install.sh
 
   # MacOS
