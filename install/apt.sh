@@ -55,7 +55,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 
 sudo apt update
 ## apt-fast
-DEBIAN_FRONTEND=noninteractive sudo apt install -y --force-yes apt-fast
+DEBIAN_FRONTEND=noninteractive sudo apt install -y -o --force-yes apt-fast
 echo "
 _APTMGR = apt
 DOWNLOADBEFORE = true
