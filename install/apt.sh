@@ -54,6 +54,11 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 sudo apt update
-DEBIAN_FRONTEND=noninteractive sudo apt install -y apt-fast
+## apt-fast
+echo "
+_APTMGR = apt
+DOWNLOADBEFORE = true
+" | sudo tee /etc/apt-fast.conf > /dev/null
+DEBIAN_FRONTEND=noninteractive sudo apt install -y -o apt-fast
 sudo apt-fast install -y --install-recommends winehq-staging
 sudo apt-fast install -y $PACKAGE_LIST

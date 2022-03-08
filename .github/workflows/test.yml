@@ -17,10 +17,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y zsh
-          echo "
-          _APTMGR = apt
-          DOWNLOADBEFORE = true
-          " | sudo tee /etc/apt-fast.conf > /dev/null
           ./install.sh
 
   # MacOS
