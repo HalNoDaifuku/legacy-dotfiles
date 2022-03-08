@@ -52,7 +52,7 @@ do
 done
 '
 
-ls -a --color=auto $HOME
+ls -a $HOME
 
 # os
 ## MacOS
