@@ -31,6 +31,7 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
     ### apt-fast
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
     echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
     echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
