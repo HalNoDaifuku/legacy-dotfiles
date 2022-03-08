@@ -17,12 +17,25 @@ export LINK_FILES="
 export LINK_FOLDERS="
 .settings
 "
+export CARGO_INSTALL="
+bat
+cargo-binutils
+cargo-outdated
+cargo-update
+cargo-watch
+exa
+fd-find
+sccache
+sheldon
+starship
+"
 ## color
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
 
 export LINK_FILES=$(echo "$LINK_FILES" | tr "\n" " ")
 export LINK_FOLDERS=$(echo "$LINK_FOLDERS" | tr "\n" " ")
+export CARGO_INSTALL=$(echo "$CARGO_INSTALL" | tr "\n" " ")
 
 pushd "$SCRIPT_DIR"
 
@@ -78,8 +91,10 @@ fi
 
 
 # Rust
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-cargo install bat cargo-binutils cargo-outdated cargo-update
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing "
+cargo install $CARGO_INSTALL
 
 popd
 
