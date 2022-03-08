@@ -79,9 +79,6 @@ DLDIR='/var/cache/apt/apt-fast'
 APTCACHE='/var/cache/apt/archives'
 " | sudo tee /etc/apt-fast.conf > /dev/null
 
-sudo apt-fast dist-upgrade -y
-sudo apt-fast autoremove -y
-
 ## winehq
 # printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 # sudo apt install -y --install-recommends winehq-staging
