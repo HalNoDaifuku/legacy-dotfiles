@@ -21,18 +21,20 @@ export LINK_FOLDERS="
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
 
+export LINK_FILES=$(echo "$LINK_FILES" | tr "\n" " ")
+export LINK_FOLDERS=$(echo "$LINK_FOLDERS" | tr "\n" " ")
+
 pushd "$SCRIPT_DIR"
 
 
 # Symbolic link
 ## files
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
-export LINK_FILES=$(echo "$LINK_FILES" | tr "\n" " ")
 
 /bin/sh -c '
 for files in "$LINK_FILES"
 do
-    echo "$files"
+    echo $files
     mkdir -p $INSTALL_DIR/"$(dirname $files)"
     ln -nfs "$SCRIPT_DIR/$files" "$INSTALL_DIR/$files"
 done
@@ -40,12 +42,11 @@ done
 
 ## folders
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
-export LINK_FOLDERS=$(echo "$LINK_FOLDERS" | tr "\n" " ")
 
 /bin/sh -c '
 for folders in "$LINK_FOLDERS"
 do
-    echo "$folders"
+    echo $folders
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
