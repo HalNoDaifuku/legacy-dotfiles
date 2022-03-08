@@ -60,7 +60,9 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 sudo apt update
 
 ## apt-fast
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
+sudo touch /etc/apt-fast.conf
+sudo apt install -y apt-fast
 echo "
 _APTMGR=apt
 DOWNLOADBEFORE=true
@@ -74,9 +76,6 @@ _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCO
 DLDIR='/var/cache/apt/apt-fast'
 APTCACHE='/var/cache/apt/archives'
 " | sudo tee /etc/apt-fast.conf > /dev/null
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
-sudo apt install -y apt-fast
-cat /etc/apt-fast.conf
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
