@@ -5,7 +5,7 @@ set -eu
 
 # export
 export SCRIPT_DIR=$(cd $(dirname $0); pwd)
-export INSTALL_DIR=$HOME
+export INSTALL_DIR="$HOME"
 export LINK_FILES="
 .config/starship.toml
 .sheldon/plugins.toml
@@ -21,28 +21,28 @@ export LINK_FOLDERS="
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
 
-pushd $SCRIPT_DIR
+pushd "$SCRIPT_DIR"
 
 
 # Symbolic link
 ## files
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
 
-for files in $LINK_FILES
+for files in "$LINK_FILES"
 do
-    echo $files
+    echo "$files"
     mkdir -p $INSTALL_DIR/"$(dirname $files)"
-    ln -nfs $SCRIPT_DIR/$files $INSTALL_DIR/$files
+    ln -nfs "$SCRIPT_DIR/$files" "$INSTALL_DIR/$files"
 done
 
 ## folders
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
-for folders in $LINK_FOLDERS
+for folders in "$LINK_FOLDERS"
 do
-    echo $folders
+    echo "$folders"
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
-    ln -nfs $SCRIPT_DIR/$folders/ $INSTALL_DIR/$folders
+    ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
 
 

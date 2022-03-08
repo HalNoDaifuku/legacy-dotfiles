@@ -25,7 +25,7 @@ vim
 wget
 winetricks
 "
-export PACKAGE_LIST=$(echo $PACKAGE_LIST | tr "\n" " ")
+export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
 # platform
 ## Debian
@@ -54,4 +54,4 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 sudo apt update
 sudo apt install -y apt-fast
 sudo apt-fast install -y --install-recommends winehq-staging
-sudo apt-fast install $PACKAGE_LIST
+sudo apt-fast install "$PACKAGE_LIST"
