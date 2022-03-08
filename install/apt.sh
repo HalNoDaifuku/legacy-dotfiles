@@ -25,7 +25,7 @@ vim
 wget
 winetricks
 "
-export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
+export PACKAGE_LIST=$(echo $PACKAGE_LIST | tr "\n" " ")
 
 # platform
 ## Debian
