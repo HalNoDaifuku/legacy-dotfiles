@@ -76,6 +76,7 @@ APTCACHE='/var/cache/apt/archives'
 " | sudo tee /etc/apt-fast.conf > /dev/null
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo apt install -y apt-fast
+cat /etc/apt-fast.conf
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
