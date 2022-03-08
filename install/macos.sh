@@ -4,7 +4,7 @@ set -eu
 
 
 # XCode Command Line Tools
-if [ -d "/Library/Developer/CommandLineTools" ]; then
+if [ -d "/Library/Developer/CommandLineTools" ] || [ -d "/Applications/Xcode.app/Contents/Developer" ]; then
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing XCode Command Line Tools"
     xcode-select --install
 fi
