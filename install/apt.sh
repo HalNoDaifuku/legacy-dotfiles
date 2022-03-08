@@ -63,7 +63,7 @@ sudo apt update
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
 echo "
 _APTMGR=apt
-DOWNLOADBEFORE=true
+DOWNLOADBEFORE=false
 " | sudo tee /etc/apt-fast.conf > /dev/null
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo apt install -y apt-fast
