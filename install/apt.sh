@@ -83,7 +83,7 @@ sudo apt-fast dist-upgrade -y
 sudo apt-fast autoremove -y
 
 ## winehq
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
+# printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 # sudo apt install -y --install-recommends winehq-staging
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
