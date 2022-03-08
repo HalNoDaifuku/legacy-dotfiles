@@ -63,7 +63,17 @@ sudo apt update
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
 echo "
 _APTMGR=apt
-DOWNLOADBEFORE=false
+DOWNLOADBEFORE=true
+_MAXNUM=5
+_MAXCONPERSRV=10
+_SPLITCON=8
+_MINSPLITSZ=1M
+_PIECEALGO=default
+DLLIST='/tmp/apt-fast.list'
+_DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
+DLDIR='/var/cache/apt/apt-fast'
+APTCACHE='/var/cache/apt/archives'
+
 " | sudo tee /etc/apt-fast.conf > /dev/null
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo apt install -y apt-fast
