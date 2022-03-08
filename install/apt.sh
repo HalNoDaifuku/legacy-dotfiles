@@ -27,9 +27,6 @@ winetricks
 "
 export PACKAGE_LIST=$(echo $PACKAGE_LIST | tr "\n" " ")
 
-echo $PACKAGE_LIST
-echo $PLATFORM
-
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
@@ -40,6 +37,7 @@ if [ "$PLATFORM" = "Debian" ]; then
 
 ## Ubuntu
 if [ "$PLATFORM" = "Ubuntu" ]; then
+    echo test
     sudo apt install -y software-properties-common lsb-release
 
     ### apt-fast
