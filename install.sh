@@ -41,7 +41,7 @@ do
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
 
-ls -a --color ~
+ls -a --color=auto $HOME
 
 # os
 ## MacOS
