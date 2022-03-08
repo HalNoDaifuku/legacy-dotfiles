@@ -44,7 +44,7 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo add-apt-repository ppa:apt-fast/stable
 
     ### winehq
-    sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb-release -c -s) main"
+    sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 fi
 
 # apt install
