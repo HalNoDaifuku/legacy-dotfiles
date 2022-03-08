@@ -60,18 +60,13 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/gi
 sudo apt update
 
 ## apt-fast
-_APTMGR=apt
-DOWNLOADBEFORE=true
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
 echo "
 _APTMGR=apt
 DOWNLOADBEFORE=true
 " | sudo tee /etc/apt-fast.conf > /dev/null
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo apt install -y apt-fast
-# DEBIAN_FRONTEND=noninteractive sudo apt install -y -o --force-yes apt-fast
-echo "
-_APTMGR=apt
-DOWNLOADBEFORE=true
-" | sudo tee /etc/apt-fast.conf > /dev/null
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
