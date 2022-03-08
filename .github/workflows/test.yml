@@ -15,8 +15,7 @@ jobs:
 
       - name: Test
         run: |
-          pwd
-          ls -a
+          ./install.sh
 
   # MacOS
   MacOS:
