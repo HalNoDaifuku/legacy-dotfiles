@@ -21,6 +21,9 @@ export LINK_FOLDERS="
 export PRINTF_CYAN="\033[1;36m%s"
 export PRINTF_DELETE_LINE="\033[m\n"
 
+export LINK_FILES=$(echo "$LINK_FILES" | tr "\n" " ")
+export LINK_FOLDERS=$(echo "$LINK_FOLDERS" | tr "\n" " ")
+
 pushd "$SCRIPT_DIR"
 
 
