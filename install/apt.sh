@@ -8,9 +8,6 @@ export PACKAGE_LIST="
 aria2
 colordiff
 curl
-docker-ce
-docker-ce-cli
-containerd.io
 ffmpeg
 gcc
 gh
@@ -82,7 +79,7 @@ APTCACHE='/var/cache/apt/archives'
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 # sudo apt install -y --install-recommends winehq-staging
-apt search wine-staging
+apt search winehq-staging
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
 sudo apt-fast install -y $PACKAGE_LIST
