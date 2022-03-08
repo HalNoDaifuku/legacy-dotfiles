@@ -73,7 +73,6 @@ DLLIST='/tmp/apt-fast.list'
 _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
 DLDIR='/var/cache/apt/apt-fast'
 APTCACHE='/var/cache/apt/archives'
-
 " | sudo tee /etc/apt-fast.conf > /dev/null
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo apt install -y apt-fast
