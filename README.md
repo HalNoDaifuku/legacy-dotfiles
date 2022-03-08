@@ -4,6 +4,10 @@
 
 ## Requirements
 
-Unix OS (Not supported on Windows)
+Debian
+
+Ubuntu
+
+MacOS
 
 `/bin/zsh`
