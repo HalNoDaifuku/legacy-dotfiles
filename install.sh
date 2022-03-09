@@ -89,6 +89,10 @@ else
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Your platform is not supported (yet)"
 fi
 
+# docker
+if [[ "$PLATFORM" != "Darwin" ]]; then
+    curl -fsSL https://get.docker.com | sh
+fi
 
 # Rust
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."

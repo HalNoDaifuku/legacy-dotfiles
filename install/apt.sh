@@ -8,9 +8,6 @@ export PACKAGE_LIST="
 aria2
 colordiff
 curl
-docker-ce
-docker-ce-cli
-containerd.io
 ffmpeg
 gcc
 gh
