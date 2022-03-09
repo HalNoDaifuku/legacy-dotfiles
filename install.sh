@@ -92,7 +92,7 @@ fi
 
 # Rust
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
 cargo install $CARGO_INSTALL
 
