@@ -98,7 +98,8 @@ fi
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
-sh -c 'cargo install $CARGO_INSTALL'
+cargo install sccache
+RUSTC_WRAPPER=$(which sccache); sh -c 'cargo install $CARGO_INSTALL'
 
 popd
 
