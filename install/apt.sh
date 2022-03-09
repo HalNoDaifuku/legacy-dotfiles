@@ -36,6 +36,14 @@ if [ "$PLATFORM" = "Debian" ]; then
     echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
 
+    ## winehq
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
+    sudo dpkg --add-architecture i386
+    wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    sudo apt-key add winehq.key
+    rm -f winehq.key
+    echo "deb https://dl.winehq.org/wine-builds/debian/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list > /dev/null
+
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo apt install -y software-properties-common lsb-release wget
