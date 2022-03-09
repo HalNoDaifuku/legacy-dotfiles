@@ -15,5 +15,5 @@ jobs:
 
       - name: Test
         run: |
-          sed -i.bak '/mas /d' Brewfile
+          sed -i.bak -e '/mas /d' .settings/homebrew/Brewfile
           ./install.sh
