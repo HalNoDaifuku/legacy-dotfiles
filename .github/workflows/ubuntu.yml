@@ -17,5 +17,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y zsh
-          sed -i.bak -e /winehq/d' install/apt.sh
+          sed -i.bak -e '/winehq/d' install/apt.sh
           ./install.sh
