@@ -13,10 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Test
+      - name: Install zsh
         run: |
           sudo apt update
           sudo apt install -y zsh
-          echo "Without error"
-          sed -i.bak -e '/winehq/d' install/apt.sh
-          ./install.sh
+
+      - name: Without error
+        run: sed -i.bak -e '/winehq/d' install/apt.sh
+
+      - name: Test
+        run: ./install.sh

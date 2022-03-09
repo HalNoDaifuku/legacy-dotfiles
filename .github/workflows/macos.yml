@@ -13,8 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Without error
+        run: sed -i.bak -e '/mas /d' .settings/homebrew/Brewfile
+
       - name: Test
-        run: |
-          echo "Without error"
-          sed -i.bak -e '/mas /d' .settings/homebrew/Brewfile
-          ./install.sh
+        run: ./install.sh
