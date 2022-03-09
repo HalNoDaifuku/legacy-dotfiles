@@ -32,8 +32,8 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 if [ "$PLATFORM" = "Debian" ]; then
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
-    echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
-    echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
+    echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu $(curl -fsSL 'https://github.com/tianon/docker-brew-ubuntu-core/raw/dist-amd64/latest') main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
+    echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu $(curl -fsSL 'https://github.com/tianon/docker-brew-ubuntu-core/raw/dist-amd64/latest') main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
 
     ## winehq
