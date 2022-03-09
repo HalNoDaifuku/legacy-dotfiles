@@ -30,6 +30,8 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
+    sudo apt install -y lsb-release wget
+
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
     echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu $(curl -fsSL 'https://github.com/tianon/docker-brew-ubuntu-core/raw/dist-amd64/latest') main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
