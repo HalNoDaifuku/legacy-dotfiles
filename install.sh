@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 set -eu
 
@@ -44,26 +44,22 @@ pushd "$SCRIPT_DIR"
 ## files
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
 
-/bin/sh -c '
 for files in $LINK_FILES
 do
     echo $files
     mkdir -p $INSTALL_DIR/"$(dirname $files)"
     ln -nfs "$SCRIPT_DIR/$files" "$INSTALL_DIR/$files"
 done
-'
 
 ## folders
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
-/bin/sh -c '
 for folders in $LINK_FOLDERS
 do
     echo $folders/
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
-'
 
 ls -a $HOME
 
@@ -99,7 +95,7 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
 cargo install sccache
-RUSTC_WRAPPER=$(which sccache); sh -c 'cargo install $CARGO_INSTALL'
+RUSTC_WRAPPER=$(which sccache); cargo install $CARGO_INSTALL
 
 popd
 

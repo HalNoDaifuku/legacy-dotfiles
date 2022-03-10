@@ -91,7 +91,7 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 sudo apt-fast install -y --install-recommends winehq-staging
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
-sh -c 'sudo apt-fast install -y $PACKAGE_LIST'
+sudo apt-fast install -y $PACKAGE_LIST
 
 # end
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "End $PLATFORM script"
