@@ -87,6 +87,7 @@ fi
 
 # docker
 if [[ "$PLATFORM" != "Darwin" ]]; then
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing docker..."
     curl -fsSL https://get.docker.com | sh
 fi
 
@@ -98,5 +99,7 @@ cargo install sccache
 RUSTC_WRAPPER=$(which sccache); cargo install $CARGO_INSTALL
 
 popd
+
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Finished all script"
 
 exit 0
