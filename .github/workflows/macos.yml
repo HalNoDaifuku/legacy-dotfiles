@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Without error
-        run: sed -i.bak -e "/mas /d" -e "/playcover /d" .settings/homebrew/Brewfile
+        run: sed -i.bak -e "/mas /d" -e "/playcover/d" .settings/homebrew/Brewfile
 
       - name: Test
         run: ./install.sh
