@@ -86,7 +86,7 @@ else
 fi
 
 # docker
-if [[ "$PLATFORM" != "Darwin" ]]; then
+if [[ "$PLATFORM" != "MacOS" ]]; then
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing docker..."
     curl -fsSL https://get.docker.com | sh
 fi
