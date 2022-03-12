@@ -92,11 +92,16 @@ if [[ "$PLATFORM" != "MacOS" ]]; then
 fi
 
 # Rust
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
-cargo install sccache
-RUSTC_WRAPPER=$(which sccache); cargo install $CARGO_INSTALL
+if ( type rustup > /dev/null 2>&1 ); then
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    source "$HOME/.cargo/env"
+
+    ## cargo
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
+    cargo install sccache
+    export RUSTC_WRAPPER=$(which sccache); cargo install $CARGO_INSTALL
+fi
 
 popd
 
