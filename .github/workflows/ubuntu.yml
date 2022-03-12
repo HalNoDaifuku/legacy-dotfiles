@@ -11,8 +11,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install zsh
+        run: |
+          sudo apt update
+          sudo apt install -y zsh
+
       - name: Without error
         run: sed -i.bak -e "/winehq/d" install/apt.sh
 
       - name: Test install.sh
         run: ./install.sh
+
+      - name: Test zsh
+        run: exec zsh -l

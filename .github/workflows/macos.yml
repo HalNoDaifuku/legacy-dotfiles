@@ -16,3 +16,6 @@ jobs:
 
       - name: Test install.sh
         run: ./install.sh
+
+      - name: Test zsh
+        run: exec zsh -l
