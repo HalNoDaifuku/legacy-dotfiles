@@ -1,6 +1,8 @@
 name: Ubuntu-Test
 
-on: [ workflow_dispatch ]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   Ubuntu:
