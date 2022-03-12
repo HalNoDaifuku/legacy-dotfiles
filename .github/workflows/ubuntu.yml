@@ -23,4 +23,4 @@ jobs:
         run: ./install.sh
 
       - name: Test zsh
-        run: exec zsh -l -c "exit 0"
+        run: exec zsh -l -c "exit"
