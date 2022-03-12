@@ -14,5 +14,5 @@ jobs:
       - name: Without error
         run: sed -i.bak -e "/winehq/d" install/apt.sh
 
-      - name: Test
+      - name: Test install.sh
         run: ./install.sh
