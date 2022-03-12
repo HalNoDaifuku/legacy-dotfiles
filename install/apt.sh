@@ -90,7 +90,7 @@ APTCACHE='/var/cache/apt/archives'
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
 sudo apt-fast install -y --install-recommends winehq-staging
 
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing packages..."
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $PACKAGE_LIST with apt-fast..."
 sudo apt-fast install -y $PACKAGE_LIST
 
 # end
