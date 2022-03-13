@@ -19,3 +19,9 @@ jobs:
 
       - name: Test zsh
         run: exec zsh -l -c "exit"
+
+      - name: Test install.sh again
+        run: ./install.sh
+
+      - name: Test zsh again
+        run: exec zsh -l -c "exit"
