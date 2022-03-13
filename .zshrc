@@ -1,4 +1,4 @@
-export ZSHRC_PATH=$(cd $(dirname $0); pwd)
+export ZSHRC_PATH=$HOME
 
 # zsh settings
 source $ZSHRC_PATH/.settings/zsh/zsh.zsh
