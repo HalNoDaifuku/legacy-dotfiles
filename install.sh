@@ -61,8 +61,6 @@ do
     ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
 done
 
-ls -a $HOME
-
 # os
 ## MacOS
 if [ "$(uname -s)" = "Darwin" ]; then
