@@ -95,6 +95,7 @@ if ! ( type rustup > /dev/null 2>&1 ); then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
     source "$HOME/.cargo/env"
 fi
+rustup update
 
 # cargo
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $CARGO_INSTALL with cargo..."
