@@ -90,11 +90,9 @@ if [[ "$PLATFORM" != "MacOS" ]]; then
 fi
 
 # rustup
-if ! ( type rustup > /dev/null 2>&1 ); then
-    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
-    source "$HOME/.cargo/env"
-fi
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing rustup..."
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+source "$HOME/.cargo/env"
 rustup update
 
 # cargo
