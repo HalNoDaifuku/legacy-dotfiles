@@ -25,6 +25,7 @@ update-all() {
 
     if type pip3 > /dev/null 2>&1; then
         pip3 list -o | tail -n +3 | awk "{ print $1 }" | xargs pip3 install -U
+    fi
 
     if type rustup > /dev/null 2>&1; then
         rustup update
@@ -33,7 +34,7 @@ update-all() {
     if type cargo-install-update > /dev/null 2>&1; then
         cargo install-update --all --git
     fi
-    
+
     if type sheldon > /dev/null 2>&1; then
         sheldon lock --update
     fi
