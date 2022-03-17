@@ -10,7 +10,7 @@ source $ZSHRC_PATH/.settings/zsh/alias.zsh
 source $ZSHRC_PATH/.settings/zsh/function.zsh
 
 # Homebrew
-if type brew > /dev/null 2>&1; then
+if [ -d /opt/homebrew ] || [ -f /usr/local/bin/brew ]; then
     source $ZSHRC_PATH/.settings/homebrew/homebrew_settings.zsh
 fi
 
