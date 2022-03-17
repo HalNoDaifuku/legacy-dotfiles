@@ -10,4 +10,4 @@ Ubuntu
 
 MacOS
 
-`/bin/zsh`
+`bash`
