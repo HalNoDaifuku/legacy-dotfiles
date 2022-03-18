@@ -20,7 +20,7 @@ fi
 
 # Test
 pwd
-tree -a -I .git/
+ls -a
 
 pushd "$SCRIPT_DIR/.settings/homebrew"
 
