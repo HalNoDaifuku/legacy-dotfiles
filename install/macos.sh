@@ -17,6 +17,11 @@ if ! type brew > /dev/null 2>&1; then
 fi
 
 ## Brewfile
+
+# Test
+pwd
+tree -a -I .git/
+
 pushd "$SCRIPT_DIR/.settings/homebrew"
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing Homebrew packages..."
