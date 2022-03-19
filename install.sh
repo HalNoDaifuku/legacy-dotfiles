@@ -56,8 +56,8 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
 for folders in $LINK_FOLDERS
 do
-    rm -rf $INSTALL_DIR/$folders/
     echo $folders/
+    rm -rf $INSTALL_DIR/$folders/
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     pushd "$INSTALL_DIR"
     ln -nfs "$SCRIPT_DIR/$folders/" "$folders"
