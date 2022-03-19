@@ -59,7 +59,9 @@ do
     rm -rf $INSTALL_DIR/$folders/
     echo $folders/
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
-    ln -nfs "$SCRIPT_DIR/$folders/" "$INSTALL_DIR/$folders"
+    pushd "$INSTALL_DIR"
+    ln -nfs "$SCRIPT_DIR/$folders/" "$folders"
+    popd
 done
 
 # os
