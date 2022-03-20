@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
-
-# Test
+# set -eu
 set -eux
 
 
