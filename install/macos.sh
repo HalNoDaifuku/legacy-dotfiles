@@ -2,6 +2,9 @@
 
 set -eu
 
+# Test
+set -eux
+
 
 # XCode Command Line Tools
 if [ ! -d "/Library/Developer/CommandLineTools" ] || [ ! -d "/Applications/Xcode.app/Contents/Developer" ]; then

@@ -2,6 +2,9 @@
 
 set -eu
 
+# Test
+set -eux
+
 
 # export
 export PACKAGE_LIST="
