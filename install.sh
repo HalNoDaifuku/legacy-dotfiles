@@ -59,12 +59,12 @@ for folders in $LINK_FOLDERS
 do
     echo $folders/
 
-    # Delete
-    if [ -L "$INSTALL_DIR/$folders/" ]; then
-        unlink "$INSTALL_DIR/$folders/"
-    elif [ -d "$INSTALL_DIR/$folders/" ]; then
-        rm -rf "$INSTALL_DIR/$folders/"
-    fi
+    # # Delete
+    # if [ -L "$INSTALL_DIR/$folders/" ]; then
+    #     unlink "$INSTALL_DIR/$folders/"
+    # elif [ -d "$INSTALL_DIR/$folders/" ]; then
+    #     rm -rf "$INSTALL_DIR/$folders/"
+    # fi
 
     mkdir -p $INSTALL_DIR/"$(dirname $folders)"
     pushd "$INSTALL_DIR"
