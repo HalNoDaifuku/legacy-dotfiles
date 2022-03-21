@@ -4,10 +4,13 @@
 
 ## Requirements
 
-Debian
+### Debian && Ubuntu
 
-Ubuntu
+`bash` (Install)
+`zsh` (Default Shell)
 
-MacOS
+### MacOS
 
-`bash`
+`bash` (Install)
+`zsh` (Default Shell)
+XCode Command Line Tools
