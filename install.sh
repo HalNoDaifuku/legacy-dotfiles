@@ -47,8 +47,8 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking files..."
 
 for files in $LINK_FILES
 do
-    echo $files
-    mkdir -p $INSTALL_DIR/"$(dirname $files)"
+    echo "$files"
+    mkdir -p "$INSTALL_DIR/$(dirname "$files")"
     ln -nfs "$SCRIPT_DIR/$files" "$INSTALL_DIR/$files"
 done
 
@@ -57,7 +57,7 @@ printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Linking folders..."
 
 for folders in $LINK_FOLDERS
 do
-    echo $folders/
+    echo "$folders/"
 
     # Delete
     if [ -L "$INSTALL_DIR/$folders" ]; then
