@@ -94,6 +94,25 @@ else
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Your platform is not supported (yet)"
 fi
 
+# anyenv
+if [ -d "$HOME/.anyenv" ]; then
+
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing anyenv"
+    git clone https://github.com/anyenv/anyenv "$HOME/.anyenv"
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+
+    if [ -d "$HOME/.config/anyenv/anyenv-install" ]; then
+        echo y | anyenv install --init
+    fi
+
+    if [ -d "$(anyenv root)/plugins/anyenv-update" ]; then
+        printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing any"
+        mkdir -p "$(anyenv root)/plugins"
+        git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
+    fi
+fi
+
 # docker
 if [[ "$PLATFORM" != "MacOS" ]]; then
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing docker..."
