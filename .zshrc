@@ -29,7 +29,7 @@ export WINE=wine64
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 
 # sheldon
 eval "$(sheldon source)"
