@@ -8,7 +8,7 @@ update-all() {
     fi
 
     if type anyenv > /dev/null 2>&1; then
-        anyenv update
+        anyenv update -v
     fi
 
     if type mas > /dev/null 2>&1; then
