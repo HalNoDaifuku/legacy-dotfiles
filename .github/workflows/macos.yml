@@ -16,6 +16,9 @@ jobs:
           sudo chsh -s /bin/zsh
           exit
 
+      - name: Confirm default shell
+        run: echo $SHELL
+
       - name: Without error
         run: sed -i.bak -e "/mas /d" -e "/playcover/d" .settings/homebrew/Brewfile
 

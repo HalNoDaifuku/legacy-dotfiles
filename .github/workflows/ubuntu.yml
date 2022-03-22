@@ -21,6 +21,9 @@ jobs:
           sudo chsh -s /bin/zsh
           exit
 
+      - name: Confirm default shell
+        run: echo $SHELL
+
       - name: Without error
         run: sed -i.bak -e "/winehq/d" install/apt.sh
 
