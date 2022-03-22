@@ -17,3 +17,15 @@
 `zsh` (Default Shell)
 
 XCode Command Line Tools
+
+## Installation
+
+```sh
+./install.sh
+```
+
+or,
+
+```sh
+sudo bash ./install.sh
+```
