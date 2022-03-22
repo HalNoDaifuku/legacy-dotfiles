@@ -106,6 +106,7 @@ if ! [ -d "$HOME/.anyenv" ]; then
         echo y | anyenv install --init
     fi
 
+    # anyenv-update
     if ! [ -d "$(anyenv root)/plugins/anyenv-update" ]; then
         printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing anyenv-update..."
         mkdir -p "$(anyenv root)/plugins"
