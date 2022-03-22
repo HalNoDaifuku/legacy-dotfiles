@@ -24,6 +24,7 @@ jobs:
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
+        shell: zsh {0}
 
       - name: Test install.sh again
         run: |
@@ -35,3 +36,4 @@ jobs:
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
+        shell: zsh {0}
