@@ -11,6 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Change default shell
+        run: |
+          chsh -s /bin/zsh
+          exit
+
       - name: Without error
         run: sed -i.bak -e "/mas /d" -e "/playcover/d" .settings/homebrew/Brewfile
 
