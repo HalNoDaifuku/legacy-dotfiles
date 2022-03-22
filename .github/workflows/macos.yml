@@ -11,25 +11,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Change default shell
-        run: |
-          sudo chsh -s /bin/zsh
-          exit
-
-      - name: Confirm default shell
-        run: echo $SHELL
-
       - name: Without error
         run: sed -i.bak -e "/mas /d" -e "/playcover/d" .settings/homebrew/Brewfile
 
       - name: Test install.sh
-        run: ./install.sh
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+        shell: zsh {0}
 
       - name: Test zsh
-        run: exec zsh -i -c "exit"
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"
 
       - name: Test install.sh again
-        run: ./install.sh
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+        shell: zsh {0}
 
       - name: Test zsh again
-        run: exec zsh -i -c "exit"
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"

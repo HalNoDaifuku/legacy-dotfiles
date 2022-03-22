@@ -16,25 +16,27 @@ jobs:
           sudo apt update
           sudo apt install -y zsh
 
-      - name: Change default shell
-        run: |
-          sudo chsh -s /bin/zsh
-          exit
-
-      - name: Confirm default shell
-        run: echo $SHELL
-
       - name: Without error
         run: sed -i.bak -e "/winehq/d" install/apt.sh
 
       - name: Test install.sh
-        run: ./install.sh
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+        shell: zsh {0}
 
       - name: Test zsh
-        run: exec zsh -i -c "exit"
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"
 
       - name: Test install.sh again
-        run: ./install.sh
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+        shell: zsh {0}
 
       - name: Test zsh again
-        run: exec zsh -i -c "exit"
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"
