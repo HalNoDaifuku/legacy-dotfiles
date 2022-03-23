@@ -27,10 +27,11 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
+sudo apt install -y lsb-release software-properties-common wget
+
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
-    sudo apt install -y lsb-release wget
 
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
@@ -48,7 +49,6 @@ if [ "$PLATFORM" = "Debian" ]; then
 
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
-    sudo apt install -y software-properties-common lsb-release wget
 
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
