@@ -27,11 +27,11 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
-sudo apt install -y curl lsb-release software-properties-common wget
 
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
+    sudo apt install -y lsb-release wget
 
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
@@ -49,6 +49,7 @@ if [ "$PLATFORM" = "Debian" ]; then
 
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
+    sudo apt install -y lsb-release software-properties-common wget
 
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
@@ -65,6 +66,7 @@ fi
 
 # apt install
 ## gh
+sudo apt-fast install -y curl
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting gh..."
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
