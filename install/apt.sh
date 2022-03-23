@@ -27,7 +27,7 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
-sudo apt install -y lsb-release software-properties-common wget
+sudo apt install -y curl lsb-release software-properties-common wget
 
 # platform
 ## Debian
