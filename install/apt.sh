@@ -15,8 +15,10 @@ ffmpeg
 gcc
 gh
 git
+libssl-dev
 make
 mingw-w64
+pkg-config
 sl
 tmux
 tree
