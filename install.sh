@@ -103,30 +103,31 @@ if ! [ -d "$HOME/.anyenv" ]; then
     git clone https://github.com/anyenv/anyenv "$HOME/.anyenv"
     export PATH="$HOME/.anyenv/bin:$PATH"
     eval "$(anyenv init - zsh)"
+fi
 
-    if ! [ -d "$HOME/.config/anyenv/anyenv-install" ]; then
-        echo y | anyenv install --init
-    fi
+if ! [ -d "$HOME/.config/anyenv/anyenv-install" ]; then
+    echo y | anyenv install --init
+fi
 
-    # anyenv-update
-    if ! [ -d "$(anyenv root)/plugins/anyenv-update" ]; then
-        printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing anyenv-update..."
-        mkdir -p "$(anyenv root)/plugins"
-        git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
-    fi
+## anyenv-update
+if ! [ -d "$(anyenv root)/plugins/anyenv-update" ]; then
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing anyenv-update..."
+    mkdir -p "$(anyenv root)/plugins"
+    git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
+fi
 
-    # plenv
-    if ! [ -d "$(anyenv root)/envs/plenv" ]; then
-        printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing plenv..."
-        anyenv install plenv
-        eval "$(anyenv init - zsh)"
-        plenv install-cpanm
+# plenv
+if ! [ -d "$(anyenv root)/envs/plenv" ]; then
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing plenv..."
+    anyenv install plenv
+    eval "$(anyenv init - zsh)"
+    plenv install-cpanm
+fi
 
-        if ! [ -d "$(plenv root)"/versions/* ]; then
-            printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing perl with plenv..."
-            plenv install "$(curl -fsSL https://raw.githubusercontent.com/docker-library/official-images/master/library/perl | grep -i latest | awk '{ print $2 }' | sed -e 's/,//')"
-        fi
-    fi
+# perl with plenv
+if ! [ -d "$(plenv root)"/versions/* ]; then
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing perl with plenv..."
+    plenv install "$(curl -fsSL https://raw.githubusercontent.com/docker-library/official-images/master/library/perl | grep -i latest | awk '{ print $2 }' | sed -e 's/,//')"
 fi
 
 # docker
