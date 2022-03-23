@@ -38,7 +38,11 @@ cask "font-fira-code-nerd-font"
 cask "google-chrome"
 cask "ipatool"
 cask "iterm2"
-cask "playcover"
+
+if Hardware::CPU.intel?
+    cask "playcover"
+end
+
 cask "slack"
 cask "steam"
 cask "syntax-highlight"
