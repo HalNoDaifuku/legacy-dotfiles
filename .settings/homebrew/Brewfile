@@ -39,7 +39,7 @@ cask "google-chrome"
 cask "ipatool"
 cask "iterm2"
 
-if Hardware::CPU.intel?
+if Hardware::CPU.arm?
     cask "playcover"
 end
 
