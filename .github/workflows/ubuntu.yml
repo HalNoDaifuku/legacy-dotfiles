@@ -7,6 +7,9 @@ on:
 jobs:
   Ubuntu:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: zsh {0}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,6 +18,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y zsh
+        shell: bash {0}
 
       - name: Without error
         run: sed -i.bak -e "/winehq/d" install/apt.sh
@@ -23,22 +27,18 @@ jobs:
         run: |
           export SHELL="/bin/zsh"
           ./install.sh
-        shell: zsh {0}
 
       - name: Test zsh
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
-        shell: zsh {0}
 
       - name: Test install.sh again
         run: |
           export SHELL="/bin/zsh"
           ./install.sh
-        shell: zsh {0}
 
       - name: Test zsh again
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
-        shell: zsh {0}

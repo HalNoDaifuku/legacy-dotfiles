@@ -7,6 +7,9 @@ on:
 jobs:
   MacOS:
     runs-on: macos-latest
+    defaults:
+      run:
+        shell: zsh {0}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -18,22 +21,18 @@ jobs:
         run: |
           export SHELL="/bin/zsh"
           ./install.sh
-        shell: zsh {0}
 
       - name: Test zsh
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
-        shell: zsh {0}
 
       - name: Test install.sh again
         run: |
           export SHELL="/bin/zsh"
           ./install.sh
-        shell: zsh {0}
 
       - name: Test zsh again
         run: |
           export SHELL="/bin/zsh"
           exec zsh -i -c "exit"
-        shell: zsh {0}
