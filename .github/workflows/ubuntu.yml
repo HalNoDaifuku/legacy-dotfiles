@@ -21,9 +21,6 @@ jobs:
           sudo apt install -y zsh
         shell: bash {0}
 
-      - name: Without error
-        run: sed -i.bak -e "/winehq/d" install/apt.sh
-
       - name: Test install.sh
         run: |
           export SHELL="/bin/zsh"
