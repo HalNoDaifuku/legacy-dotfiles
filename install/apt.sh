@@ -74,7 +74,7 @@ sudo apt update
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 sudo touch /etc/apt-fast.conf
-sudo apt install -y -qq apt-fast
+export DEBIAN_FRONTEND=noninteractive; sudo apt install -y apt-fast
 echo "
 _APTMGR=apt
 DOWNLOADBEFORE=true
