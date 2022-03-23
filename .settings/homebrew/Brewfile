@@ -30,7 +30,7 @@ cask "adobe-creative-cloud-cleaner-tool"
 cask "appcleaner"
 cask "betterdiscord-installer"
 cask "blackhole-16ch"
-cask "blender"
+cask "blender", args: { appdir: "/Applications/Blender/latest" }
 cask "discord"
 cask "discord-ptb"
 cask "docker"
