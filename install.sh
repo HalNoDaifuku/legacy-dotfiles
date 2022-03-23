@@ -112,6 +112,19 @@ if ! [ -d "$HOME/.anyenv" ]; then
         mkdir -p "$(anyenv root)/plugins"
         git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
     fi
+
+    # plenv
+    if ! [ -d "$(anyenv root)/envs/plenv" ]; then
+        printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing plenv..."
+        anyenv install plenv
+        eval "$(anyenv init - zsh)"
+        plenv install-cpanm
+
+        if ! [ -d "$(plenv root)"/versions/* ]; then
+            printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing perl with plenv..."
+            plenv install "$(curl -fsSL https://raw.githubusercontent.com/docker-library/official-images/master/library/perl | grep -i latest | awk '{ print $2 }' | sed -e 's/,//')"
+        fi
+    fi
 fi
 
 # docker
