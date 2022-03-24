@@ -92,6 +92,8 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 fi
 
+sudo apt update
+
 # apt install
 ## gh
 sudo apt install -y curl
