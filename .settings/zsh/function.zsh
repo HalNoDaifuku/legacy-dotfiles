@@ -1,7 +1,7 @@
 # # apt-fast
 # if type apt > /dev/null 2>&1; then
 #     apt-fast() {
-#         curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | sh -s -- $*
+#         curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s -- $*
 #     }
 # fi
 
@@ -12,6 +12,10 @@ update-all() {
 
     if type ibrew > /dev/null 2>&1; then
         ibrew upgrade --greedy
+    fi
+
+    if type apt-fast > /dev/null 2>&1; then
+        sudo apt-fast update && sudo apt-fast dist-upgrade
     fi
 
     if type anyenv > /dev/null 2>&1; then
