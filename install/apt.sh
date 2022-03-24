@@ -30,7 +30,7 @@ winetricks
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
 ## apt-fast
-sudo apt install -y curl
+sudo apt install -y curl aria2
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
 
 sudo mkdir -p /usr/local/sbin
