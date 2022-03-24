@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Ubuntu:
+  Debian:
     runs-on: ubuntu-latest
     container: debian:latest
     defaults:
