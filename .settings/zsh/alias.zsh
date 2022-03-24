@@ -7,10 +7,6 @@ alias ls='ls -F --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
 
-if type apt > /dev/null 2>&1; then
-    alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
-fi
-
 if type colordiff > /dev/null 2>&1; then
     alias diff='colordiff'
 fi

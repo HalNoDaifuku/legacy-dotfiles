@@ -29,15 +29,26 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
-alias sudo='sudo '
-
 ## apt-fast
 sudo apt install -y curl
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
 
+sudo mkdir -p /usr/local/sbin
+
 if type apt > /dev/null 2>&1; then
-    alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
+    echo '
+    #!/usr/bin/env bash
+    curl -fsSL "https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast" | bash -s -- $@
+    exit 0
+    ' | sudo tee /usr/local/sbin/apt-fast > /dev/null
 fi
+
+export PATH="$PATH"
+
+
+# if type apt > /dev/null 2>&1; then
+#     alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
+# fi
 
 # sudo touch /etc/apt-fast.conf
 # export DEBIAN_FRONTEND=noninteractive
