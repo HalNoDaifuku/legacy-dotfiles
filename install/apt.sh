@@ -43,6 +43,8 @@ if type apt > /dev/null 2>&1; then
     ' | sudo tee /usr/local/sbin/apt-fast > /dev/null
 fi
 
+chmod a+x /usr/local/sbin/apt-fast
+
 export PATH="$PATH"
 
 
