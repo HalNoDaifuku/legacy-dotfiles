@@ -12,7 +12,7 @@ jobs:
         shell: zsh {0}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Without error
         run: sed -i.bak -e "/mas /d" .settings/homebrew/Brewfile
