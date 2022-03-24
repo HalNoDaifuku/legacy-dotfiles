@@ -33,7 +33,7 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
-    sudo apt install -y gnupg2 lsb-release wget
+    sudo apt install -y curl gnupg2 lsb-release wget
 
     # ### apt-fast
     # printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
@@ -48,8 +48,6 @@ if [ "$PLATFORM" = "Debian" ]; then
     sudo apt-key add winehq.key
     rm -f winehq.key
     echo "deb https://dl.winehq.org/wine-builds/debian/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list > /dev/null
-
-    sudo apt update
 
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
@@ -66,8 +64,6 @@ elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo apt-key add winehq.key
     rm -f winehq.key
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
-
-    sudo apt update
 fi
 
 # apt install
@@ -82,12 +78,15 @@ sudo apt update
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 
-if type apt > /dev/null 2>&1; then
-    apt-fast() {
-        curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast | sh -s -- $*
-    }
-fi
+# if type apt > /dev/null 2>&1; then
+#     apt-fast() {
+#         curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast | bash -s -- $*
+#     }
+# fi
 
+sudo touch /etc/apt-fast.conf
+export DEBIAN_FRONTEND=noninteractive
+echo y | sudo apt install -y apt-fast
 echo "
 _APTMGR=apt
 DOWNLOADBEFORE=true
