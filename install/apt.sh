@@ -41,9 +41,7 @@ sudo add-apt-repository ppa:apt-fast/stable
 ### winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
 sudo dpkg --add-architecture i386
-wget -nc https://dl.winehq.org/wine-builds/winehq.key
-sudo apt-key add winehq.key
-rm -f winehq.key
+curl -fsSL https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
 sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -c -s) main"
 
 # apt install
