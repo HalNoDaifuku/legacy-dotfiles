@@ -68,9 +68,9 @@ sudo apt update
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
 if type apt > /dev/null 2>&1; then
-    apt-fast() {
+    sh -c "apt-fast() {
     curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | sh -s -- $*
-    }
+    }"
 fi
 echo "
 _APTMGR=apt
