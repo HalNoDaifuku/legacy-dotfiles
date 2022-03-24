@@ -1,0 +1,48 @@
+name: Debian-Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  Ubuntu:
+    runs-on: ubuntu-latest
+    container: debian:latest
+    defaults:
+      run:
+        shell: zsh {0}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install sudo
+        run: |
+          apt update
+          apt install -y sudo
+        shell: bash {0}
+
+      - name: Install zsh
+        run: |
+          sudo apt update
+          sudo apt install -y zsh
+        shell: bash {0}
+
+      - name: Test install.sh
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+
+      - name: Test zsh
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"
+
+      - name: Test install.sh again
+        run: |
+          export SHELL="/bin/zsh"
+          ./install.sh
+
+      - name: Test zsh again
+        run: |
+          export SHELL="/bin/zsh"
+          exec zsh -i -c "exit"
