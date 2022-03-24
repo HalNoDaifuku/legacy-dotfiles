@@ -5,6 +5,7 @@
 # set -eu
 set -eux
 
+shopt -s expand_aliases
 
 # export
 export PACKAGE_LIST="
@@ -29,46 +30,7 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
-## apt-fast
-sudo apt install -y curl aria2
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
-
-sudo mkdir -p /usr/local/sbin
-
-if type apt > /dev/null 2>&1; then
-    echo '
-    #!/usr/bin/env bash
-    curl -fsSL "https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast" | bash -s -- $@
-    exit 0
-    ' | sudo tee /usr/local/sbin/apt-fast > /dev/null
-fi
-
-chmod a+x /usr/local/sbin/apt-fast
-
-export PATH="$PATH"
-
-
-# if type apt > /dev/null 2>&1; then
-#     alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
-# fi
-
-# sudo touch /etc/apt-fast.conf
-# export DEBIAN_FRONTEND=noninteractive
-# echo y | sudo apt install -y apt-fast
-
-echo "
-_APTMGR=apt
-DOWNLOADBEFORE=true
-_MAXNUM=5
-_MAXCONPERSRV=10
-_SPLITCON=8
-_MINSPLITSZ=1M
-_PIECEALGO=default
-DLLIST='/tmp/apt-fast.list'
-_DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
-DLDIR='/var/cache/apt/apt-fast'
-APTCACHE='/var/cache/apt/archives'
-" | sudo tee /etc/apt-fast.conf > /dev/null
+alias sudo='sudo '
 
 # platform
 ## Debian
@@ -93,9 +55,33 @@ if [ "$PLATFORM" = "Debian" ]; then
 elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo apt install -y lsb-release software-properties-common wget
 
-    # ### apt-fast
-    # printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
-    # sudo add-apt-repository ppa:apt-fast/stable
+    ### apt-fast
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
+    sudo add-apt-repository ppa:apt-fast/stable
+
+    sudo apt update
+
+    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
+
+    sudo touch /etc/apt-fast.conf
+    export DEBIAN_FRONTEND=noninteractive
+    echo y | sudo apt install -y apt-fast
+
+    echo "
+    _APTMGR=apt
+    DOWNLOADBEFORE=true
+    _MAXNUM=5
+    _MAXCONPERSRV=10
+    _SPLITCON=8
+    _MINSPLITSZ=1M
+    _PIECEALGO=default
+    DLLIST='/tmp/apt-fast.list'
+    _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
+    DLDIR='/var/cache/apt/apt-fast'
+    APTCACHE='/var/cache/apt/archives'
+    " | sudo tee /etc/apt-fast.conf > /dev/null
+
+    alias apt='apt-fast'
 
     ### winehq
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
@@ -117,10 +103,10 @@ sudo apt update
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
-sudo apt-fast install -y --install-recommends winehq-staging
+sudo apt install -y --install-recommends winehq-staging
 
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing $PACKAGE_LIST with apt-fast..."
-sudo apt-fast install -y $PACKAGE_LIST
+sudo apt install -y $PACKAGE_LIST
 
 # end
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "End $PLATFORM script"
