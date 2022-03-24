@@ -29,6 +29,33 @@ winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
+alias sudo='sudo '
+
+## apt-fast
+sudo apt install -y curl
+printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
+
+if type apt > /dev/null 2>&1; then
+    alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
+fi
+
+# sudo touch /etc/apt-fast.conf
+# export DEBIAN_FRONTEND=noninteractive
+# echo y | sudo apt install -y apt-fast
+
+echo "
+_APTMGR=apt
+DOWNLOADBEFORE=true
+_MAXNUM=5
+_MAXCONPERSRV=10
+_SPLITCON=8
+_MINSPLITSZ=1M
+_PIECEALGO=default
+DLLIST='/tmp/apt-fast.list'
+_DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
+DLDIR='/var/cache/apt/apt-fast'
+APTCACHE='/var/cache/apt/archives'
+" | sudo tee /etc/apt-fast.conf > /dev/null
 
 # platform
 ## Debian
@@ -74,31 +101,6 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 sudo apt update
-
-## apt-fast
-printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
-
-if type apt > /dev/null 2>&1; then
-    alias apt-fast="curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s --"
-fi
-
-# sudo touch /etc/apt-fast.conf
-# export DEBIAN_FRONTEND=noninteractive
-# echo y | sudo apt install -y apt-fast
-
-echo "
-_APTMGR=apt
-DOWNLOADBEFORE=true
-_MAXNUM=5
-_MAXCONPERSRV=10
-_SPLITCON=8
-_MINSPLITSZ=1M
-_PIECEALGO=default
-DLLIST='/tmp/apt-fast.list'
-_DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} -i ${DLLIST} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} --connect-timeout=600 --timeout=600 -m0'
-DLDIR='/var/cache/apt/apt-fast'
-APTCACHE='/var/cache/apt/archives'
-" | sudo tee /etc/apt-fast.conf > /dev/null
 
 ## winehq
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing winehq-staging..."
