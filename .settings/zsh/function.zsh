@@ -1,10 +1,3 @@
-# # apt-fast
-# if type apt > /dev/null 2>&1; then
-#     apt-fast() {
-#         curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | bash -s -- $*
-#     }
-# fi
-
 update-all() {
     if type brew > /dev/null 2>&1; then
         brew upgrade --greedy
