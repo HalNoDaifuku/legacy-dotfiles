@@ -86,12 +86,6 @@ elif [ -f /etc/lsb-release ] && ( type apt > /dev/null 2>&1 ); then
     export PLATFORM=Ubuntu
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Your platform is $PLATFORM"
     ./install/apt.sh
-
-## Debian
-elif [ -f /etc/debian_version ] && ( type apt > /dev/null 2>&1 ); then
-    export PLATFORM=Debian
-    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Your platform is $PLATFORM"
-    ./install/apt.sh
 else
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Your platform is not supported (yet)"
 fi

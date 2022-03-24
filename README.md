@@ -4,7 +4,7 @@
 
 ## Requirements
 
-### Debian && Ubuntu
+### Ubuntu
 
 `bash` (Install)
 
