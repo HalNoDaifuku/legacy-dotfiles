@@ -33,13 +33,7 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
-    sudo apt install -y aria2 curl gnupg2 lsb-release wget
-
-    ### apt-fast
-    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
-    echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu $(curl -fsSL 'https://github.com/tianon/docker-brew-ubuntu-core/raw/dist-amd64/latest') main" | sudo tee /etc/apt/sources.list.d/apt-fast.list > /dev/null
-    echo "deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu $(curl -fsSL 'https://github.com/tianon/docker-brew-ubuntu-core/raw/dist-amd64/latest') main" | sudo tee -a /etc/apt/sources.list.d/apt-fast.list > /dev/null
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
+    sudo apt install -y lsb-release wget
 
     ## winehq
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
@@ -52,10 +46,6 @@ if [ "$PLATFORM" = "Debian" ]; then
 ## Ubuntu
 elif [ "$PLATFORM" = "Ubuntu" ]; then
     sudo apt install -y lsb-release software-properties-common wget
-
-    ### apt-fast
-    printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
-    sudo add-apt-repository ppa:apt-fast/stable
 
     ### winehq
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting winehq..."
@@ -77,9 +67,11 @@ sudo apt update
 
 ## apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing apt-fast..."
-sudo touch /etc/apt-fast.conf
-export DEBIAN_FRONTEND=noninteractive
-echo y | sudo apt install -y apt-fast
+if type apt > /dev/null 2>&1; then
+    apt-fast() {
+    curl -fsSL 'https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast' | sh -s -- $*
+    }
+fi
 echo "
 _APTMGR=apt
 DOWNLOADBEFORE=true
