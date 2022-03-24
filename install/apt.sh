@@ -33,7 +33,7 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 # platform
 ## Debian
 if [ "$PLATFORM" = "Debian" ]; then
-    sudo apt install -y lsb-release wget
+    sudo apt install -y gnupg2 lsb-release wget
 
     ### apt-fast
     printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
