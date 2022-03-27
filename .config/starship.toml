@@ -1,6 +1,20 @@
 add_newline = false
+format = """
+$all\
+$fill\
+$line_break\
+$jobs\
+$battery\
+$status\
+$shell\
+$character"""
 right_format = """
 $time"""
+
+[fill]
+symbol = "--"
+style = "bold purple"
+disabled = false
 
 [directory]
 truncation_length = 0
