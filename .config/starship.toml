@@ -1,8 +1,9 @@
-add_newline = false
+# add_newline = false
 format = """
 [┌](bold cyan) \
 $all\
 $fill\
+[┐](bold cyan) \
 $line_break\
 [└](bold cyan) \
 $jobs\
@@ -12,7 +13,7 @@ $shell\
 $character"""
 right_format = """
 $line_break\
-$time"""
+$time[┘](bold cyan)"""
 
 [fill]
 symbol = "─"
