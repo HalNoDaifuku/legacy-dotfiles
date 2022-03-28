@@ -9,6 +9,7 @@ $status\
 $shell\
 $character"""
 right_format = """
+$line_break\
 $time"""
 
 [fill]
