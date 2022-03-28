@@ -1,9 +1,11 @@
 add_newline = false
 format = """
-[┌](bold cyan) $all\
+[┌](bold cyan) \
+$all\
 $fill\
 $line_break\
-[└](bold cyan) $jobs\
+[└](bold cyan) \
+$jobs\
 $battery\
 $status\
 $shell\
