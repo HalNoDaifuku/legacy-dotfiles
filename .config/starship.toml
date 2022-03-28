@@ -1,9 +1,9 @@
 add_newline = false
 format = """
-$all\
+[┌](bold cyan) $all\
 $fill\
 $line_break\
-$jobs\
+[└](bold cyan) $jobs\
 $battery\
 $status\
 $shell\
@@ -13,8 +13,8 @@ $line_break\
 $time"""
 
 [fill]
-symbol = "--"
-style = "bold purple"
+symbol = "─"
+style = "bold cyan"
 disabled = false
 
 [directory]
