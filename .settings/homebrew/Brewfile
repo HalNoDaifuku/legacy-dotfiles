@@ -43,6 +43,8 @@ cask "iterm2"
 
 if Hardware::CPU.arm?
     cask "playcover"
+end
+
 cask "slack"
 cask "steam"
 cask "syntax-highlight"
