@@ -104,3 +104,8 @@ PATH="$SCRIPT_HOMEBREW_PATH/opt/make/libexec/gnubin:$PATH"
 # git
 # Emacs Lisp files have been installed to:
 #   /opt/homebrew/share/emacs/site-lisp/git
+
+# openjdk
+export PATH="$SCRIPT_HOMEBREW_PATH/opt/openjdk/bin:$PATH"
+# For compilers to find openjdk you may need to set:
+#   export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
