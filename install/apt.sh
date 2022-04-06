@@ -26,7 +26,6 @@ tree
 unar
 vim
 wget
-winetricks
 "
 export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 

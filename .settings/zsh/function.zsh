@@ -1,3 +1,11 @@
+winetricks() {
+    if [ "$(uname -s)" = "Darwin" ]; then
+    curl -fsSL "$(curl -fsSL https://raw.githubusercontent.com/Gcenx/WineskinServer/master/WineskinWinetricks/Location.txt)" | sh -s -- "$@"
+    else
+    curl -fsSL https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks | sh -s -- "$@"
+    fi
+}
+
 update-all() {
     if type brew > /dev/null 2>&1; then
         brew upgrade --greedy
