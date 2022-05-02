@@ -105,11 +105,6 @@ PATH="$SCRIPT_HOMEBREW_PATH/opt/make/libexec/gnubin:$PATH"
 # Emacs Lisp files have been installed to:
 #   /opt/homebrew/share/emacs/site-lisp/git
 
-# openjdk
-export PATH="$SCRIPT_HOMEBREW_PATH/opt/openjdk/bin:$PATH"
-# For compilers to find openjdk you may need to set:
-#   export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-
 # coreutils
 # Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
 # If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
