@@ -32,6 +32,8 @@ export PACKAGE_LIST=$(echo "$PACKAGE_LIST" | tr "\n" " ")
 
 alias sudo='sudo '
 
+export DEBIAN_FRONTEND=noninteractive
+sudo apt install -y tzdata
 sudo apt install -y curl gnupg2 lsb-release software-properties-common wget
 
 ### apt-fast
