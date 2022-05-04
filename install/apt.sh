@@ -34,7 +34,7 @@ alias sudo='sudo '
 
 export DEBIAN_FRONTEND=noninteractive
 sudo apt install -y tzdata
-sudo apt install -y curl gnupg2 lsb-release software-properties-common wget
+sudo apt install -y curl gnupg2 lsb-release software-properties-common
 
 ### apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
