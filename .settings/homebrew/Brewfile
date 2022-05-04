@@ -14,7 +14,7 @@ brew "curl"
 brew "ffmpeg"
 brew "gcc"
 brew "gh"
-brew "git"
+brew "git", args: ["overwrite"]
 brew "make"
 brew "mas"
 brew "mingw-w64"
