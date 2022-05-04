@@ -38,6 +38,7 @@ sudo apt install -y curl gnupg2 lsb-release software-properties-common wget
 
 ### apt-fast
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Setting apt-fast..."
+sudo apt install -y aria2
 sudo add-apt-repository ppa:apt-fast/stable
 
 ### winehq
