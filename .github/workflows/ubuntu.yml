@@ -7,7 +7,7 @@ on:
 jobs:
   Ubuntu:
     runs-on: ubuntu-latest
-    container: ubuntu:latest
+    container: ubuntu:focal
     defaults:
       run:
         shell: zsh {0}
