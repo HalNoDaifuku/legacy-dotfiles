@@ -46,6 +46,7 @@ if Hardware::CPU.arm?
     cask "playcover"
 end
 
+cask "protonvpn"
 cask "slack"
 cask "steam"
 cask "syntax-highlight"
