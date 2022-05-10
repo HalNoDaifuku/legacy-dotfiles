@@ -40,11 +40,11 @@ cask "font-fira-code-nerd-font"
 cask "google-chrome"
 cask "ipatool"
 cask "iterm2"
-cask "manymc"
 cask "minecraft"
 
 if Hardware::CPU.arm?
     cask "playcover"
+    cask "manymc"
 end
 
 cask "protonvpn"
