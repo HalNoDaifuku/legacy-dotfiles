@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "majd/repo"
 tap "rafaelgarrido/caveats"
+
 brew "aria2"
 brew "bash"
 brew "colordiff"
@@ -28,6 +29,7 @@ brew "wget"
 brew "winetricks"
 brew "zsh"
 brew "rafaelgarrido/caveats/brew-caveats"
+
 cask "adobe-creative-cloud-cleaner-tool"
 cask "appcleaner"
 cask "betterdiscord-installer"
@@ -41,12 +43,6 @@ cask "google-chrome"
 cask "ipatool"
 cask "iterm2"
 cask "minecraft"
-
-if Hardware::CPU.arm?
-    cask "playcover"
-    cask "manymc"
-end
-
 cask "protonvpn"
 cask "slack"
 cask "steam"
@@ -59,6 +55,12 @@ cask "xquartz"
 cask "zoom"
 cask "zulu"
 cask "zulu8"
+
+if Hardware::CPU.arm?
+    cask "playcover"
+    cask "manymc"
+end
+
 mas "Create File Menu", id: 1440519779
 mas "RunCat", id: 1429033973
 mas "Spark", id: 1176895641
