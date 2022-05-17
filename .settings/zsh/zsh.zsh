@@ -7,7 +7,7 @@ RPROMPT='%F{green}[%W %*]%f'
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=3000
 export SAVEHIST=3000
-export HISTORY_IGNORE="(*ipatool*|sl*)"
+export HISTORY_IGNORE="(ipatool *|sl *|*email*|*password*)"
 setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt correct
