@@ -32,12 +32,8 @@ update-all() {
         vim -c "call dein#update() | q"
     fi
 
-    if type pip > /dev/null 2>&1; then
-        pip list -o | tail -n +3 | awk "{ print $1 }" | xargs pip install -U
-    fi
-
-    if type pip3 > /dev/null 2>&1; then
-        pip3 list -o | tail -n +3 | awk "{ print $1 }" | xargs pip3 install -U
+    if type pip-review > /dev/null 2>&1; then
+        pip-review -v -a
     fi
 
     if type rustup > /dev/null 2>&1; then
