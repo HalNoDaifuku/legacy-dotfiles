@@ -4,7 +4,7 @@ if type bat > /dev/null 2>&1; then
     }
 fi
 
-winetricks() {
+function winetricks() {
     if [ "$(uname -s)" = "Darwin" ]; then
         printf "\033[1;36m%s \033[m\n" "MacOS winetricks"
         sh -c "$(curl -fsSL $(curl -fsSL https://raw.githubusercontent.com/Gcenx/WineskinServer/master/WineskinWinetricks/Location.txt))" -c $@
@@ -13,7 +13,7 @@ winetricks() {
     fi
 }
 
-update-all() {
+function update-all() {
     if type brew > /dev/null 2>&1; then
         brew upgrade --greedy
     fi
