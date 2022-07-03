@@ -24,6 +24,9 @@ elif type cachepot > /dev/null 2>&1; then
     export RUSTC_WRAPPER=$(which cachepot)
 fi
 
+# bat
+export BAT_CONFIG_PATH="$HOME/.config/bat/config"
+
 # Wine
 export WINE=wine64
 
