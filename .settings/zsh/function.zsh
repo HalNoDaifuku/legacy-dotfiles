@@ -1,3 +1,9 @@
+if type bat > /dev/null 2>&1; then
+    function cat() {
+        command cat $@ | bat --paging=never --plain
+    }
+fi
+
 winetricks() {
     if [ "$(uname -s)" = "Darwin" ]; then
         printf "\033[1;36m%s \033[m\n" "MacOS winetricks"
