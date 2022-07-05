@@ -23,9 +23,3 @@ XCode Command Line Tools
 ```sh
 ./install.sh
 ```
-
-or,
-
-```sh
-sudo bash ./install.sh
-```
