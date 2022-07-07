@@ -12,7 +12,7 @@ if type colordiff > /dev/null 2>&1; then
 fi
 
 if type exa > /dev/null 2>&1; then
-    alias exa='exa -F --color=auto'
+    alias exa='LS_COLORS=; exa -F --color=auto'
     alias exal='exa -lh'
     alias exaa='exa -a'
 fi
