@@ -17,6 +17,10 @@ zshaddhistory() {
     [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]]
 }
 
+# completions
+setopt globdots
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+
 # man(less) color
 export LESS_TERMCAP_mb=$'\E[1;31m'
 export LESS_TERMCAP_md=$'\E[1;36m'
