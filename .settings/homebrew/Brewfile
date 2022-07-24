@@ -35,7 +35,9 @@ brew "zsh"
 brew "rafaelgarrido/caveats/brew-caveats"
 
 cask "adobe-creative-cloud-cleaner-tool"
+cask "altserver"
 cask "appcleaner"
+cask "background-music"
 cask "betterdiscord-installer"
 cask "blackhole-16ch"
 cask "blender", args: { appdir: "/Applications/Blender/latest" }
