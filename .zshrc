@@ -57,6 +57,6 @@ autoload -Uz compinit; compinit
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-if [ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]; then
-    . "$HOME/.fig/shell/zshrc.pre.zsh"
+if [ -f "$HOME/.fig/shell/zshrc.post.zsh" ]; then
+    . "$HOME/.fig/shell/zshrc.post.zsh"
 fi
