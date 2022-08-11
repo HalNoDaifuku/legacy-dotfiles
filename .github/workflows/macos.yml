@@ -6,7 +6,7 @@ on:
 
 jobs:
   MacOS:
-    runs-on: [self-hosted, macos-latest, ARM64]
+    runs-on: macos-latest
     defaults:
       run:
         shell: zsh {0}
