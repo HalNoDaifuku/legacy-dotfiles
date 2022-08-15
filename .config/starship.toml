@@ -9,6 +9,7 @@ $line_break\
 $jobs\
 $battery\
 $status\
+$container\
 $shell\
 $character"""
 right_format = """
