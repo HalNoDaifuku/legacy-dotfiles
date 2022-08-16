@@ -10,6 +10,7 @@ shopt -s expand_aliases
 # export
 export PACKAGE_LIST="
 aria2
+cmake
 colordiff
 curl
 ffmpeg
