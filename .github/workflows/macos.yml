@@ -17,6 +17,9 @@ jobs:
       - name: Without error
         run: sed -i.bak -e "/mas /d" .settings/homebrew/Brewfile
 
+      - name: Run 'brew update'
+        run: brew update
+
       - name: Test install.sh
         run: |
           export SHELL="/bin/zsh"
