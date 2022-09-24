@@ -26,6 +26,10 @@ function update-all() {
         sudo apt-fast update && sudo apt-fast dist-upgrade
     fi
 
+    if type asdf > /dev/null 2>&1; then
+        asdf plugin update --all
+    fi
+
     if type anyenv > /dev/null 2>&1; then
         anyenv update -v
     fi
