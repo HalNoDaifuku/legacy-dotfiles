@@ -109,3 +109,8 @@ PATH="$SCRIPT_HOMEBREW_PATH/opt/make/libexec/gnubin:$PATH"
 # Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
 # If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
 PATH="$SCRIPT_HOMEBREW_PATH/opt/coreutils/libexec/gnubin:$PATH"
+
+# asdf
+if [ -f "$SCRIPT_HOMEBREW_PATH/opt/asdf/libexec/asdf.sh" ]; then
+    source $SCRIPT_HOMEBREW_PATH/opt/asdf/libexec/asdf.sh
+fi

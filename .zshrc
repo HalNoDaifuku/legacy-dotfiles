@@ -35,10 +35,6 @@ export BAT_CONFIG_PATH="$HOME/.config/bat/config"
 # Wine
 export WINE=wine64
 
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - zsh)"
-
 # sheldon
 eval "$(sheldon source)"
 

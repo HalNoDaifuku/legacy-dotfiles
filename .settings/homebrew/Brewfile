@@ -9,6 +9,7 @@ tap "playcover/playcover"
 tap "rafaelgarrido/caveats"
 
 brew "aria2"
+brew "asdf"
 brew "bash"
 brew "clamav"
 brew "cmake"
