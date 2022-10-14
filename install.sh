@@ -11,7 +11,7 @@ export SCRIPT_DIR=$(cd $(dirname $0); pwd)
 export INSTALL_DIR="$HOME"
 export LINK_FILES="
 .config/starship.toml
-.sheldon/plugins.toml
+.config/sheldon/plugins.toml
 .gitconfig
 .tmux.conf
 .vimrc
