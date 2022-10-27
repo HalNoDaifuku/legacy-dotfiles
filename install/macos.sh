@@ -22,6 +22,8 @@ fi
 ## Brewfile
 pushd "$INSTALL_DIR/.settings/homebrew"
 
+brew update
+
 printf "$PRINTF_CYAN $PRINTF_DELETE_LINE" "Installing Homebrew packages..."
 brew bundle -v
 
