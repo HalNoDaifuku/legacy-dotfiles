@@ -1,4 +1,4 @@
-# DANGER!! THIS IS TESTING
+# DANGER!! UNSAFE
 
 # My dotfiles
 
