@@ -25,6 +25,7 @@ brew "git", args: ["overwrite"]
 brew "make"
 brew "mas"
 brew "mingw-w64"
+brew "rclone"
 brew "shellcheck"
 brew "sl"
 brew "streamlink"
@@ -58,9 +59,9 @@ cask "iina"
 cask "ipatool"
 cask "iterm2"
 cask "megasync"
-cask "minecraft"
 cask "polymc"
 cask "protonvpn"
+cask "readdle-spark"
 cask "slack"
 cask "steam"
 cask "syntax-highlight"
@@ -78,6 +79,7 @@ if Hardware::CPU.arm?
 end
 
 mas "Create File Menu", id: 1440519779
+mas "NextDNS", id: 1464122853
+mas "Passepartout", id: 1433648537
 mas "RunCat", id: 1429033973
 mas "Spark", id: 1176895641
-mas "NextDNS", id: 1464122853
