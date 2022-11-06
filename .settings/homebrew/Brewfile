@@ -6,7 +6,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "majd/repo"
-tap "playcover/playcover"
 tap "rafaelgarrido/caveats"
 
 brew "aria2"
