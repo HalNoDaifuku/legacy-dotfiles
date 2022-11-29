@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "majd/repo"
+tap "playcover/playcover"
 tap "rafaelgarrido/caveats"
 
 brew "aria2"
@@ -53,6 +54,7 @@ cask "discord"
 cask "docker"
 cask "fig"
 cask "font-fira-code-nerd-font"
+cask "font-hachi-maru-pop"
 cask "google-chrome"
 cask "iina"
 cask "ipatool"
@@ -64,6 +66,7 @@ cask "readdle-spark"
 cask "slack"
 cask "steam"
 cask "syntax-highlight"
+cask "townwifi"
 cask "unofficial-wineskin"
 cask "utm"
 cask "visual-studio-code"
@@ -74,7 +77,7 @@ cask "zulu"
 cask "zulu8"
 
 if Hardware::CPU.arm?
-    cask "playcover-community"
+    cask "playcover-prerelease"
 end
 
 mas "Create File Menu", id: 1440519779
