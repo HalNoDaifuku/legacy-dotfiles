@@ -55,7 +55,7 @@ function update-all() {
     fi
 
     if type sheldon > /dev/null 2>&1; then
-        sheldon lock --update
+        sheldon source --update
     fi
 
     if type perl > /dev/null 2>&1; then
