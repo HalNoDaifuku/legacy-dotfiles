@@ -10,6 +10,7 @@ set -eux
 export SCRIPT_DIR=$(cd $(dirname $0); pwd)
 export INSTALL_DIR="$HOME"
 export LINK_FILES="
+Library/LaunchAgents/aria2c.rpc.plist
 .config/starship.toml
 .config/sheldon/plugins.toml
 .gitconfig
