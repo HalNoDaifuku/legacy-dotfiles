@@ -1,9 +1,7 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# # Fig pre block. Keep at the top of this file.
-# if [ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]; then
-#     . "$HOME/.fig/shell/zshrc.pre.zsh"
-# fi
+if [ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]; then
+    . "$HOME/.fig/shell/zshrc.pre.zsh"
+fi
 
 export ZSHRC_PATH=$HOME
 
@@ -54,10 +52,7 @@ autoload -Uz compinit; compinit
 # starship
 eval "$(starship init zsh)"
 
-# # Fig post block. Keep at the bottom of this file.
-# if [ -f "$HOME/.fig/shell/zshrc.post.zsh" ]; then
-#     . "$HOME/.fig/shell/zshrc.post.zsh"
-# fi
-
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+if [ -f "$HOME/.fig/shell/zshrc.post.zsh" ]; then
+    . "$HOME/.fig/shell/zshrc.post.zsh"
+fi
