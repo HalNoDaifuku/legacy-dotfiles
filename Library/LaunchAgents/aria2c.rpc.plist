@@ -9,6 +9,10 @@
     <array>
         <string>/opt/homebrew/bin/aria2c</string>
         <string>--enable-rpc</string>
+        <string>-s5</string>
+        <string>-x5</string>
+        <string>-c</string>
+        <string>-V</string>
     </array>
 
     <key>WorkingDirectory</key>
