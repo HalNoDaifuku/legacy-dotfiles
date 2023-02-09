@@ -86,6 +86,7 @@ end
 
 mas "Create File Menu", id: 1440519779
 mas "NextDNS", id: 1464122853
+mas "Orbot", id: 1609461599
 mas "Passepartout", id: 1433648537
 mas "RunCat", id: 1429033973
 mas "Spark", id: 1176895641
