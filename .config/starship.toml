@@ -9,6 +9,7 @@ $line_break\
 $jobs\
 $battery\
 $status\
+$os\
 $container\
 $shell\
 $character"""
@@ -24,6 +25,9 @@ disabled = false
 [directory]
 truncation_length = 0
 truncate_to_repo = false
+
+[os]
+disabled = false
 
 [[battery.display]]
 threshold = 20
