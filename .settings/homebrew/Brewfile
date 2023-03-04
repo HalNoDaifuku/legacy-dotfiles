@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "majd/repo"
+tap "nextdns/tap"
 tap "playcover/playcover"
 tap "rafaelgarrido/caveats"
 
@@ -17,6 +18,7 @@ brew "cmake"
 brew "colordiff"
 brew "coreutils"
 brew "curl"
+brew "ferium"
 brew "ffmpeg"
 brew "fswatch"
 brew "gcc"
@@ -39,10 +41,10 @@ brew "wget"
 brew "winetricks"
 brew "yt-dlp"
 brew "zsh"
+brew "nextdns/tap/nextdns"
 brew "rafaelgarrido/caveats/brew-caveats"
 
 cask "adobe-creative-cloud-cleaner-tool"
-cask "altserver"
 cask "appcleaner"
 cask "background-music"
 cask "betterdiscord-installer"
@@ -77,15 +79,12 @@ cask "visual-studio-code"
 cask "wine-staging"
 cask "xquartz"
 cask "zoom"
-cask "zulu"
-cask "zulu8"
 
 if Hardware::CPU.arm?
     cask "playcover-prerelease"
 end
 
 mas "Create File Menu", id: 1440519779
-mas "NextDNS", id: 1464122853
 mas "Orbot", id: 1609461599
 mas "Passepartout", id: 1433648537
 mas "RunCat", id: 1429033973
