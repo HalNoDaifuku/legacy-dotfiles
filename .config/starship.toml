@@ -29,6 +29,9 @@ truncate_to_repo = false
 [os]
 disabled = false
 
+[username]
+show_always = true
+
 [[battery.display]]
 threshold = 20
 style = "bold red"
