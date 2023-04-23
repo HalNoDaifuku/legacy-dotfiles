@@ -1,4 +1,6 @@
-# DANGER!! UNSAFE!!
+# EOL
+
+<details><summary>Old README.md</summary>
 
 # My dotfiles
 
@@ -23,3 +25,5 @@ XCode Command Line Tools
 ```sh
 ./install.sh
 ```
+
+</details>
